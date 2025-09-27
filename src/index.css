@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-varela: 'Varela Round', sans-serif;
+  --color-orng-2xsm: #fff5eb;
+  --color-orng-xsm: #fee6ce;
+  --color-orng-lsm: #ffd6c8;
+  --color-orng-sm: #fdd0a2;
+  --color-orng-md: #fdae6b;
+  --color-orng-xmd: #fd8d3c;
+  --color-orng-lg: #f16913;
+  --color-orng-xlg: #d94801;
+  --color-orng-xlg: #8c2d04;
+}
+.scroll-hidden {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scroll-hidden::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
