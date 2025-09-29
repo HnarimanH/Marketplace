@@ -26,8 +26,8 @@ export default function Product({img, name, description, price, location, produc
 
 
 
-            <div className="flex items-center justify-center w-full h-[132px] max-w-[132px] overflow-hidden">
-                <div className="flex items-center justify-center w-full h-full bg-orng-md  rounded">
+            <div className="flex items-center justify-center w-full h-[132px] max-w-[132px] min-w-[132px] overflow-hidden">
+                <div className="flex items-center justify-center w-full min-w-[132px] h-full bg-orng-md  rounded ml-4 mr-4">
                     <img 
                     src={img} 
                     alt="image" 

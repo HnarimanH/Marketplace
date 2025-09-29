@@ -1,13 +1,20 @@
-const accessKey = "aWQ0cPGtTSGC0RLdoQcI5MqSIIzGYYBEIOGS1Vx6gUY"; // replace this with your Unsplash access key
+const accessKey = "aWQ0cPGtTSGC0RLdoQcI5MqSIIzGYYBEIOGS1Vx6gUY";
 
-async function fetchUnsplashImage(query) {
+async function fetchUnsplashImages(query, count = 5) {
     try {
-        const res = await fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=1&client_id=${accessKey}`);
+        const res = await fetch(
+            `https://api.unsplash.com/search/photos?query=${query}&per_page=${count}&client_id=${accessKey}`
+        );
         const data = await res.json();
-        return data.results[0]?.urls.small || "https://via.placeholder.com/400x300"; // fallback
+
+
+        return data.results.map(img => img.urls.small);
     } catch (err) {
         console.error("Unsplash fetch error:", err);
-        return "https://via.placeholder.com/400x300"; // fallback
+
+
+        return Array(3).fill("https://via.placeholder.com/400x300");
     }
 }
-export default fetchUnsplashImage
+
+export default fetchUnsplashImages;

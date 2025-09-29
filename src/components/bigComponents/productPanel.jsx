@@ -12,7 +12,7 @@ export default function ProductPanel({ products, productClicked }) {
           productClicked={productClicked}
           product={product}
           key={index}
-          img={product.img}
+          img={product.img[1]}
           name={product.name}
           description={product.description}
           price={product.price}
