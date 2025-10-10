@@ -4,7 +4,7 @@ import NavBar from "../miniComponents/navBar";
 import Input from "../miniComponents/input";
 import { LuSearch, LuMenu } from "react-icons/lu";
 import Button from "../miniComponents/button";
-export default function FirstPage({selectedProduct, setSelectedProduct, setIsHomePage}){
+export default function FirstPage({selectedProduct, setSelectedProduct,setCurrentPage}){
     const [isDropdown, setIsDropdown] = useState(false)
     
     const triggerDropdown = () =>{
@@ -15,6 +15,10 @@ export default function FirstPage({selectedProduct, setSelectedProduct, setIsHom
       type: "h1", 
       content: "Mobile", 
       props: { 
+        onClick: ()=>{
+          setSelectedProduct('Mobile')
+          setCurrentPage('home')
+        } ,
         className: "text-lg cursor-pointer hover:scale-105 transform duration-300  " 
       } 
     },
@@ -22,6 +26,10 @@ export default function FirstPage({selectedProduct, setSelectedProduct, setIsHom
       type: "h1", 
       content: "PC", 
       props: { 
+        onClick: ()=>{
+          setSelectedProduct('PC')
+          setCurrentPage('home')
+        } ,
         className: "text-lg cursor-pointer hover:scale-105 transform duration-300  " 
       } 
     },
@@ -29,6 +37,10 @@ export default function FirstPage({selectedProduct, setSelectedProduct, setIsHom
       type: "h1", 
       content: "Laptop", 
       props: { 
+        onClick: ()=>{
+          setSelectedProduct('Laptop')
+          setCurrentPage('home')
+        } ,
         className: "text-lg cursor-pointer hover:scale-105 transform duration-300  " 
       } 
     },
@@ -48,15 +60,9 @@ export default function FirstPage({selectedProduct, setSelectedProduct, setIsHom
     },
     { 
       type: "h1", 
-      content: "Contact", 
-      props: { 
-        className: "text-lg cursor-pointer hover:scale-105 transform duration-300  " 
-      } 
-    },
-    { 
-      type: "h1", 
       content: "Home", 
       props: { 
+        onClick: ()=>{setCurrentPage('home')} ,
         className: "text-lg cursor-pointer hover:scale-105 transform duration-300  " 
       } 
     },];
@@ -65,7 +71,12 @@ export default function FirstPage({selectedProduct, setSelectedProduct, setIsHom
             <div className="w-full bg-orng-xsm h-20 flex items-center justify-center">
                 <div className="sm:w-1/2 w-fit h-full flex items-center justify-start ">
                     <div className="w-[250px] h-14 flex items-center justify-center shadow ml-10">
-                      <Button text={'Login / Create account'} bg={"bg-orng-md "} />
+                      <Button 
+                      text={'Login / Create account'} 
+                      bg={"bg-orng-md "} 
+                      onClick={()=>{
+                        setCurrentPage('sign')
+                        }} />
                     </div>
                 </div>
                 <div className="w-1/2 h-full hidden sm:flex items-center justify-end ">
@@ -87,7 +98,7 @@ export default function FirstPage({selectedProduct, setSelectedProduct, setIsHom
                   placeholder={"Enter Product Name"}
                   event={(e) => setSelectedProduct(e.target.value)} 
                   isSearch={true}
-                  searchEvent = {()=>{setIsHomePage(true)}}
+                  searchEvent = {()=>{setCurrentPage('home')}}
                   value={selectedProduct}/> 
             </div>
             <div className="w-full bg-orng-xsm sm:h-14 h-20 flex">

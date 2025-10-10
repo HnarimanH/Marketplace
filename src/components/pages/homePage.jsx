@@ -82,10 +82,10 @@ export default function HomePage({searchedProduct, setSearchedProduct}){
     }
     return(
         <div className="w-full h-full bg-orng-2xsm">
-            <div className="fixed left-0 top-0 h-20 w-full bg-orng-xsm flex items-center justify-center z-32 sm:justify-between flex-row border-b-2 border-orng-sm">
+            <div className="fixed left-0 top-0 h-20 w-full bg-orng-xsm flex items-center justify-center z-29 sm:justify-between flex-row border-b-2 border-orng-sm">
                 <div className=" text-2xl p-4 w-1/2 sm:w-auto flex flex-row items-center justify-start gap-2">
                     Filters
-                    {<LuTriangle onClick={()=>{setFilter(!filter)}}  className={`duration-600 w-6 h-6 cursor-pointer transform ${filter ? "rotate-270" : "rotate-90" }`}/> }
+                    {<LuTriangle onClick={()=>{setFilter(!filter)}}  className={`duration-600 w-6 h-6 cursor-pointer transform ${filter ? "rotate-90" : "rotate-270" }`}/> }
                 </div>
                 <div className="w-full lg:w-1/3 h-full hidden sm:flex flex-row-reverse items-center justify-end ">
                     <div className=" min-w-[400px] w-full max-w-[700px] h-[full] hidden sm:flex items-center justify-center">
@@ -122,7 +122,7 @@ export default function HomePage({searchedProduct, setSearchedProduct}){
                     </div>
                 </div>   
             </div>
-            <div className={`fixed top-0 left-0 z-30 ${purchasePage ? "flex" : "hidden"} felx-col items-center justify-center bg-orng-2xsm w-full h-full `} >
+            <div className={`fixed top-0 left-0 z-30 ${purchasePage ? "flex" : "hidden"} felx-col items-center justify-center bg-orng-2xsm w-full h-full scroll-hidden `} >
                 <ProductPurchasePage productClicked={productClicked} setPurchasePage={setPurchasePage}/>
             </div>
             <div className={`fixed w-full h-full flex items-center justify-center transform duration-600 ${menu ? "flex" : "hidden"} bg-gray-800/50 z-30`}>
@@ -141,7 +141,7 @@ export default function HomePage({searchedProduct, setSearchedProduct}){
                     </div>
                 </div>
             <div className=" w-full h-full flex flex-row items-center justify-center bg-orng-2xsm mt-20">
-                <div className={`bg-orng-2xsm border-r-2 shadow border-orng-sm fixed w-full z-24 max-w-[250px] min-w-24  h-full flex flex-col justify-start items-center transform duration-600 ${filter ? "-left-full" : "left-0"} top-20   `}>
+                <div className={`bg-orng-2xsm border-r-2 shadow border-orng-sm fixed w-full z-24 max-w-[250px] min-w-24  h-full flex flex-col justify-start items-center transform duration-600 ${filter ? "left-0" : "-left-full"} top-20   `}>
                     <div className=" w-[80%] pt-8 pb-8 border-b-2 border-orng-sm">
                         <Dropdown setLocation={setLocation} Locations={[...allLocations]} placeHolder={"city"}/>
                     </div>
@@ -152,7 +152,7 @@ export default function HomePage({searchedProduct, setSearchedProduct}){
                         <PriceFilter value={priceFilter} event={setPriceFilter} max={maxPrice} min={0}/>
                     </div>
                 </div>
-                <div className="sm:w-auto w-full h-full flex items-start justify-center overflow-y-scroll bg-orng-2xsm scroll-hidden">
+                <div className="sm:w-auto w-full h-full flex items-start justify-center overflow-y-scroll  bg-orng-2xsm scroll-hidden">
                     <ProductPanel productClicked={handleProduct} products={filteredProducts}/>
                 </div>
             </div> 
